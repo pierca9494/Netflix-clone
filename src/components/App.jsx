@@ -1,6 +1,6 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import useStyles from "./styles";
 import { Movies, MovieInformation, NavBar, Profile, Actors } from ".";
@@ -14,6 +14,12 @@ const App = () => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
+          {/* Homepage Route */}
+          <Route exact path="/">
+            <Movies /> {/* Assuming Movies is the homepage */}
+          </Route>
+
+          {/* Other Routes */}
           <Route exact path="/movieinformation/:id">
             <MovieInformation />
           </Route>
@@ -27,7 +33,7 @@ const App = () => {
             <Profile />
           </Route>
 
-          {/* Add more routes for other pages */}
+          {/* Fallback Route for Undefined Pages */}
           <Route component={() => <h1>Page not found</h1>} />
         </Switch>
       </main>

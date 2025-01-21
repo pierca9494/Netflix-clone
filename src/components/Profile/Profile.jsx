@@ -10,22 +10,27 @@ const Profile = () => {
   const logout = () => {
     localStorage.clear();
 
-    const favoriteMovies = []
-
     window.location.href = "/";
   };
+  const favoriteMovies = [];
 
   return (
     <Box>
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="space-between">
         <Typography variant="h4" gutterBottom>
           Welcome, {user.name}!
         </Typography>
-        <Button variant="contained" color="inherit" onClick={logout}>
+        <Button color="inherit" onClick={logout}>
           Logout &nbsp; <ExitToApp />
         </Button>
       </Box>
-      {!favoriteMovies.lenght && ? }
+      {!favoriteMovies.length ? (
+        <Typography variant="h5">
+          Add favorites or watchlist some movies to see them here!
+        </Typography>
+      ) : (
+        <Box>FAVORITE MOVIES</Box>
+      )}
     </Box>
   );
 };

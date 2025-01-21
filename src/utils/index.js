@@ -33,7 +33,7 @@ export const createSessionId = async () => {
         request_token: token,
       });
 
-      localStorage.setItem("session_is", session_id);
+      localStorage.setItem("session_id", session_id);
       return session_id;
     } catch (error) {
       console.log("Error fetching session ID");

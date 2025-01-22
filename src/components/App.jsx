@@ -20,7 +20,7 @@ const App = () => {
           </Route>
 
           {/* Other Routes */}
-          <Route exact path="/movieinformation/:id">
+          <Route exact path="/movie/:id">
             <MovieInformation />
           </Route>
           <Route exact path="/movies/:id">

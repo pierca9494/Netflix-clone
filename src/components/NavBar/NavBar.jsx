@@ -36,6 +36,7 @@ const NavBar = () => {
   const sessionIdFromLocalStorage = localStorage.getItem("session_is");
 
   useEffect(() => {
+    console.log("iosonouse");
     const logInUser = async () => {
       if (token) {
         if (sessionIdFromLocalStorage) {

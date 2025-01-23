@@ -32,7 +32,7 @@ import {
 } from "../../services/TMDB";
 import useStyles from "./styles";
 import genreIcons from "../../assets/genres";
-import { MovieList } from "..";
+import { MovieList, Pagination } from "..";
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 
 const MovieInformation = () => {
@@ -41,6 +41,7 @@ const MovieInformation = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [page, setPage] = useState(1);
   const { data: recommendations, isFetching: isRecommendationsFetching } =
     useGetRecommendationQuery({
       list: "recommendations",
@@ -70,7 +71,12 @@ const MovieInformation = () => {
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4}>
+      <Grid
+        item
+        sm={12}
+        lg={4}
+        // style={{ display: "flex", marginBottom: "30px" }}
+      >
         <img
           className={classes.poster}
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
@@ -79,7 +85,7 @@ const MovieInformation = () => {
       </Grid>
       <Grid item container direction="column" sm={12} lg={7}>
         <Typography variant="h3" align="center" gutterBottom>
-          {data?.titles} ({data.release_date.split("-")[0]})
+          {data?.title} ({data.release_date.split("-")[0]})
         </Typography>
         <Typography variant="h5" align="center" gutterBottom>
           {data?.tagline}
@@ -96,10 +102,7 @@ const MovieInformation = () => {
             </Typography>
           </Box>
           <Typography variant="h6" align="center" gutterBottom>
-            {data?.runtime}min{" "}
-            {data?.spoken_languages.length > 0
-              ? `/ ${data?.spoken_languages[0].name}`
-              : ""}
+            {data?.runtime}min | Language: {data?.spoken_languages[0].name}
           </Typography>
         </Grid>
         <Grid item className={classes.genresContainer}>
@@ -234,6 +237,11 @@ const MovieInformation = () => {
         ) : (
           <Box>Sorry, nothing was found</Box>
         )}
+        <Pagination
+          currentPage={page}
+          setPage={setPage}
+          totalPages={data?.total_pages}
+        />
       </Box>
       <Modal
         closeAfterTransition

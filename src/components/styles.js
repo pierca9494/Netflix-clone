@@ -13,6 +13,7 @@ export default makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: "2em",
+    width: "100%",
     marginLeft: drawerWidth, // Aggiungi un margine sinistro per compensare la Sidebar
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0, // Rimuovi il margine sui dispositivi mobili

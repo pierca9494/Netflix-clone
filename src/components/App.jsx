@@ -15,7 +15,7 @@ const App = () => {
         <div className={classes.toolbar} />
         <Switch>
           {/* Homepage Route */}
-          <Route exact path="/">
+          <Route exact path={["/", "/approved"]}>
             <Movies /> {/* Assuming Movies is the homepage */}
           </Route>
 

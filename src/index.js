@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 
 import App from "./components/App"; // Ensure this matches the actual file and export name.
 import store from "./app/store";
+import "./index.css";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

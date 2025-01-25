@@ -250,7 +250,7 @@ const MovieInformation = () => {
             <Grid item xs={12} sm={6} className={classes.buttonsContainer}>
               <ButtonGroup size="small" variant="outlined">
                 <Button
-                  onClick={(addToFavorites) => {}}
+                  onClick={addToFavorites}
                   endIcon={
                     isMovieFavorited ? <FavoriteBorderOutlined /> : <Favorite />
                   }
@@ -258,7 +258,7 @@ const MovieInformation = () => {
                   {isMovieFavorited ? "Unfavorite" : "Favorite"}
                 </Button>
                 <Button
-                  onClick={(addToWatchList) => {}}
+                  onClick={addToWatchList}
                   endIcon={isMovieWatchListed ? <Remove /> : <PlusOne />}
                 >
                   WatchList
